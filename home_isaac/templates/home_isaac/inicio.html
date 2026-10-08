@@ -25,7 +25,6 @@
         <div class="cine-card {% if genero.id == 'accion' %}cine-card-action{% elif genero.id == 'ciencia_ficcion' %}cine-card-scifi{% endif %} p-4">
             <!-- Arte Cinematográfico de Fondo -->
             <div class="cine-card-art" style="background-image: url('{% static 'images/' %}{{ genero.imagen }}');"></div>
-            
             <!-- Contenido Superior de la Tarjeta -->
             <div class="position-relative" style="z-index: 2;">
                 <!-- Insignia de Ícono de Género -->
