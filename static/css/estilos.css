@@ -1,0 +1,465 @@
+/* ======================================================
+   CineApp - Estilos Cinemáticos Modernos
+   ====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --cine-bg: #070a13;
+    --cine-card-bg: rgba(12, 18, 33, 0.82);
+    --cine-blue: #3b82f6;
+    --cine-blue-glow: rgba(59, 130, 246, 0.35);
+    --cine-green: #10b981;
+    --cine-green-glow: rgba(16, 185, 129, 0.35);
+    --cine-text-muted: #94a3b8;
+}
+
+body.cine-body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--cine-bg);
+    background-image: 
+        radial-gradient(ellipse at 50% 20%, rgba(30, 58, 138, 0.18) 0%, transparent 60%),
+        url('../images/bg-cinema.jpg');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* ======================================================
+   Navbar Superior
+   ====================================================== */
+.cine-navbar {
+    background: rgba(8, 12, 22, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.85rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.cine-brand {
+    font-weight: 800;
+    font-size: 1.45rem;
+    color: #ffffff !important;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    letter-spacing: -0.3px;
+    text-decoration: none;
+}
+
+.cine-brand img {
+    height: 32px;
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+    border-radius: 6px;
+}
+
+.cine-nav-link {
+    color: #94a3b8 !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    position: relative;
+    text-decoration: none;
+}
+
+.cine-nav-link:hover {
+    color: #ffffff !important;
+}
+
+.cine-nav-link.active {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.cine-nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 12px;
+    right: 12px;
+    height: 3px;
+    background: #3b82f6;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #3b82f6;
+}
+
+/* Buscador e íconos en Navbar */
+.cine-search-box {
+    position: relative;
+    width: 210px;
+}
+
+.cine-search-box input {
+    background: rgba(18, 26, 47, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+    border-radius: 20px;
+    padding: 0.38rem 1rem 0.38rem 2.2rem;
+    font-size: 0.88rem;
+    width: 100%;
+    transition: all 0.25s ease;
+}
+
+.cine-search-box input:focus {
+    background: rgba(24, 34, 62, 0.95);
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.35);
+    color: #ffffff;
+}
+
+.cine-search-box input::placeholder {
+    color: #64748b;
+}
+
+.cine-search-box .bi-search {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.cine-icon-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.15rem;
+    padding: 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.cine-icon-btn:hover {
+    color: #ffffff;
+}
+
+/* ======================================================
+   Hero Section
+   ====================================================== */
+.cine-hero {
+    padding: 3.5rem 0 2rem;
+    text-align: center;
+}
+
+.cine-hero-title-prefix {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.2rem;
+}
+
+.cine-hero-title-gradient {
+    font-size: 3.25rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #38bdf8 0%, #818cf8 45%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.25));
+}
+
+.cine-hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--cine-text-muted);
+    max-width: 650px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* Separador cinematográfico */
+.cine-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2.2rem auto 2.8rem;
+    max-width: 320px;
+}
+
+.cine-divider-line {
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.35), transparent);
+}
+
+.cine-divider-icon {
+    color: #60a5fa;
+    font-size: 1.35rem;
+    filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.6));
+    animation: cinePulse 3s infinite ease-in-out;
+}
+
+@keyframes cinePulse {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 14px rgba(96, 165, 250, 0.9)); }
+}
+
+/* ======================================================
+   Tarjetas de Géneros (Acción y Ciencia Ficción)
+   ====================================================== */
+.cine-card {
+    background: var(--cine-card-bg);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 290px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Arte de fondo de la tarjeta */
+.cine-card-art {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 62%;
+    height: 70%;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    mask-image: radial-gradient(circle at 75% 25%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%);
+    -webkit-mask-image: radial-gradient(circle at 75% 25%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%);
+    opacity: 0.75;
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.cine-card:hover .cine-card-art {
+    transform: scale(1.06);
+    opacity: 0.95;
+}
+
+/* Variación Acción */
+.cine-card-action {
+    border: 1px solid rgba(59, 130, 246, 0.38);
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.12), 0 15px 35px -5px rgba(0, 0, 0, 0.6);
+}
+
+.cine-card-action:hover {
+    border-color: rgba(96, 165, 250, 0.75);
+    box-shadow: 0 0 35px rgba(59, 130, 246, 0.3), 0 20px 45px -5px rgba(0, 0, 0, 0.75);
+    transform: translateY(-6px);
+}
+
+.cine-card-action .cine-badge-icon {
+    background: radial-gradient(circle, rgba(30, 58, 138, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.45);
+    color: #38bdf8;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+}
+
+.cine-btn-action {
+    background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%);
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 0.82rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 18px rgba(37, 99, 235, 0.35);
+    text-decoration: none;
+}
+
+.cine-btn-action:hover {
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+    color: #ffffff;
+    box-shadow: 0 6px 24px rgba(59, 130, 246, 0.55);
+    transform: translateY(-2px);
+}
+
+/* Variación Ciencia Ficción */
+.cine-card-scifi {
+    border: 1px solid rgba(16, 185, 129, 0.38);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.12), 0 15px 35px -5px rgba(0, 0, 0, 0.6);
+}
+
+.cine-card-scifi:hover {
+    border-color: rgba(52, 211, 153, 0.75);
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.3), 0 20px 45px -5px rgba(0, 0, 0, 0.75);
+    transform: translateY(-6px);
+}
+
+.cine-card-scifi .cine-badge-icon {
+    background: radial-gradient(circle, rgba(6, 78, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.45);
+    color: #34d399;
+    box-shadow: 0 0 16px rgba(52, 211, 153, 0.25);
+}
+
+.cine-btn-scifi {
+    background: linear-gradient(90deg, #059669 0%, #10b981 50%, #34d399 100%);
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 0.82rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+    text-decoration: none;
+}
+
+.cine-btn-scifi:hover {
+    background: linear-gradient(90deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+    color: #ffffff;
+    box-shadow: 0 6px 24px rgba(16, 185, 129, 0.55);
+    transform: translateY(-2px);
+}
+
+/* Insignia Circular de Ícono */
+.cine-badge-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 1.25rem;
+}
+
+.cine-card-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.3px;
+}
+
+.cine-card-text {
+    font-size: 0.95rem;
+    color: var(--cine-text-muted);
+    line-height: 1.55;
+    margin-bottom: 1.6rem;
+    max-width: 88%;
+}
+
+/* Efecto en flecha de botón al hover */
+.cine-btn-action:hover .bi-arrow-right,
+.cine-btn-scifi:hover .bi-arrow-right {
+    transform: translateX(4px);
+    transition: transform 0.2s ease;
+}
+
+/* ======================================================
+   Footer Cinemático
+   ====================================================== */
+.cine-footer {
+    background: rgba(6, 9, 17, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: #64748b;
+    font-size: 0.92rem;
+    padding: 1.4rem 0;
+    margin-top: auto;
+}
+
+.cine-footer p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.cine-footer .bi-film {
+    color: #60a5fa;
+    font-size: 1.1rem;
+    filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.5));
+}
+
+/* ======================================================
+   Página de Lista de Películas (pelicula_list.html)
+   ====================================================== */
+.cine-body h2 {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.cine-body .card {
+    background: rgba(14, 20, 36, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.cine-body .card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(96, 165, 250, 0.5);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.cine-body .card .card-img-top {
+    height: 340px;
+    object-fit: cover;
+    object-position: top center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cine-body .card .card-title {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.cine-body .card .card-text {
+    color: #94a3b8 !important;
+}
+
+.cine-body .card .badge {
+    padding: 0.45rem 0.65rem;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.cine-body .btn-outline-secondary {
+    color: #cbd5e1;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.cine-body .btn-outline-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+

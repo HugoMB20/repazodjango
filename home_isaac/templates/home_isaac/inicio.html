@@ -1,26 +1,71 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Inicio - Géneros de Películas{% endblock %}
+{% block title %}Inicio - Catálogo de Películas{% endblock %}
 
 {% block content %}
-<div class="text-center mb-5">
-    <h1 class="display-4 font-weight-bold">Bienvenido al Catálogo de Películas</h1>
-    <p class="lead">Selecciona un género para ver las películas disponibles.</p>
-</div>
+<section class="cine-hero">
+    <!-- Encabezado Principal -->
+    <h1 class="cine-hero-title-prefix">Bienvenido al</h1>
+    <span class="cine-hero-title-gradient">Catálogo de Películas</span>
+    <p class="cine-hero-subtitle">Selecciona un género para ver las películas disponibles.</p>
+    
+    <!-- Separador Cinematográfico Central -->
+    <div class="cine-divider">
+        <span class="cine-divider-line"></span>
+        <i class="bi bi-film cine-divider-icon"></i>
+        <span class="cine-divider-line"></span>
+    </div>
+</section>
 
-<!-- Componente de Bootstrap para géneros -->
-<div class="row justify-content-center g-4">
+<!-- Sección de Tarjetas de Géneros con Bootstrap -->
+<div class="row justify-content-center g-4 pb-5" id="generos">
     {% for genero in generos %}
-    <div class="col-md-5">
-        <div class="card h-100 shadow border-0">
-            <div class="card-body text-center p-4">
-                <h3 class="card-title text-primary">{{ genero.nombre }}</h3>
-                <p class="card-text text-muted my-3">{{ genero.descripcion }}</p>
+    <div class="col-md-6 col-lg-5">
+        <div class="cine-card {% if genero.id == 'accion' %}cine-card-action{% elif genero.id == 'ciencia_ficcion' %}cine-card-scifi{% endif %} p-4">
+            <!-- Arte Cinematográfico de Fondo -->
+            <div class="cine-card-art" style="background-image: url('{% static 'images/' %}{{ genero.imagen }}');"></div>
+            
+            <!-- Contenido Superior de la Tarjeta -->
+            <div class="position-relative" style="z-index: 2;">
+                <!-- Insignia de Ícono de Género -->
+                <div class="cine-badge-icon">
+                    {% if genero.id == 'accion' %}
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <circle cx="12" cy="12" r="3.2"></circle>
+                            <line x1="12" y1="1.5" x2="12" y2="5"></line>
+                            <line x1="12" y1="19" x2="12" y2="22.5"></line>
+                            <line x1="1.5" y1="12" x2="5" y2="12"></line>
+                            <line x1="19" y1="12" x2="22.5" y2="12"></line>
+                        </svg>
+                    {% elif genero.id == 'ciencia_ficcion' %}
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <ellipse cx="12" cy="12" rx="10" ry="3.8" transform="rotate(-30 12 12)"></ellipse>
+                        </svg>
+                    {% else %}
+                        <i class="bi bi-film"></i>
+                    {% endif %}
+                </div>
+
+                <!-- Título y Descripción -->
+                <h2 class="cine-card-title">{{ genero.nombre }}</h2>
+                <p class="cine-card-text">{{ genero.descripcion }}</p>
+            </div>
+
+            <!-- Botón de Navegación Funcional -->
+            <div class="position-relative" style="z-index: 2;">
                 {% if genero.id == 'accion' %}
-                    <a href="{% url 'home:genero_accion' %}" class="btn btn-primary btn-lg w-100">Ver Películas de Acción</a>
+                    <a href="{% url 'home:genero_accion' %}" class="cine-btn-action w-100">
+                        <span>Ver Películas de Acción</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
                 {% elif genero.id == 'ciencia_ficcion' %}
-                    <a href="{% url 'home:genero_scifi' %}" class="btn btn-success btn-lg w-100">Ver Ciencia Ficción</a>
+                    <a href="{% url 'home:genero_scifi' %}" class="cine-btn-scifi w-100">
+                        <span>Ver Ciencia Ficción</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
                 {% endif %}
             </div>
         </div>
