@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inicio - Géneros de Películas{% endblock %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h1 class="display-4 font-weight-bold">Bienvenido al Catálogo de Películas</h1>
+    <p class="lead">Selecciona un género para ver las películas disponibles.</p>
+</div>
+
+<!-- Componente de Bootstrap para géneros -->
+<div class="row justify-content-center g-4">
+    {% for genero in generos %}
+    <div class="col-md-5">
+        <div class="card h-100 shadow border-0">
+            <div class="card-body text-center p-4">
+                <h3 class="card-title text-primary">{{ genero.nombre }}</h3>
+                <p class="card-text text-muted my-3">{{ genero.descripcion }}</p>
+                {% if genero.id == 'accion' %}
+                    <a href="{% url 'home:genero_accion' %}" class="btn btn-primary btn-lg w-100">Ver Películas de Acción</a>
+                {% elif genero.id == 'ciencia_ficcion' %}
+                    <a href="{% url 'home:genero_scifi' %}" class="btn btn-success btn-lg w-100">Ver Ciencia Ficción</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
